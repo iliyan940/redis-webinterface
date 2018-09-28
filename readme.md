@@ -6,7 +6,7 @@ This application is Redis store and stack with web interface
 
 ### Requirements
 * nodeJS
-
+* windows x64 (for redis the installed redis server)
 
 
 ## Installation
