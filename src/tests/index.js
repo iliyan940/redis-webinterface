@@ -7,14 +7,16 @@ const server = require('../../server.js');
 chai.use(chaiHttp);
 
 
-describe('/GET book', (done) => {
-  it('check if server is running', () => {
+describe('General', () => {
+  it('check if server is running', (done) => {
     chai.request(server)
       .get('/')
       .end((err, res) => {
         res.should.have.status(200);
-        console.log(res.body);
         done();
       });
   });
 });
+
+require('./stack.js');
+require('./store.js');
