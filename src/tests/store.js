@@ -36,4 +36,27 @@ describe('Store', () => {
         done();
       });
   });
+
+  it('Delete the item from store', (done) => {
+    chai.request(server)
+      .delete('/store/item')
+      .set('content-type', 'application/x-www-form-urlencoded')
+      .send({
+        key,
+      })
+      .end((err, res) => {
+        res.should.have.status(200);
+        // console.log(res);
+        done();
+      });
+  });
+
+  it('Get deleted item from the store', (done) => {
+    chai.request(server)
+      .get(`/store/item?key=${key}`)
+      .end((err, res) => {
+        res.text.should.not.equal(value);
+        done();
+      });
+  });
 });

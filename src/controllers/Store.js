@@ -42,6 +42,7 @@ router.post('/item', (req, res) => {
 
 router.delete('/item', (req, res) => {
   const { key } = req.body;
+  console.log(key);
   store.delete(key);
   res.send(`${key} is deleted`);
 });

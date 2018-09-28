@@ -28,7 +28,6 @@ describe('Stack', () => {
       .end((err, res) => {
         res.text.should.equal(data);
       });
-
     done();
   });
 });
