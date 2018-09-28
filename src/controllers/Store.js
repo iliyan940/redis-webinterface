@@ -23,7 +23,7 @@ router.get('/form/delete', (req, res) => {
 
 
 router.get('/item', (req, res) => {
-  const key = req.query.key;
+  const { key } = req.query;
   (async function () {
     const response = await store.get(key);
     res.send(response);
@@ -31,18 +31,19 @@ router.get('/item', (req, res) => {
 });
 
 router.post('/item', (req, res) => {
-  const key = req.body.key;
-  const value = req.body.value;
-  const time = req.body.time;
+  // const key = req.body.key;
+  // const value = req.body.value;
+  // const time = req.body.time;
+  const { key, value, time } = req.body;
 
   store.set(key, value, time);
   res.redirect('back');
 });
 
 router.delete('/item', (req, res) => {
-  const key = req.query.key;
+  const { key } = req.body;
   store.delete(key);
-  res.send(key + ' is deleted');
+  res.send(`${key} is deleted`);
 });
 
 

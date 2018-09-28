@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
-const router = express.Router()
+
+const router = express.Router();
 const Stack = require('../models/Stack');
 
 const stack = new Stack();
@@ -10,16 +11,16 @@ router.get('/form/item', (req, res) => {
 });
 
 router.post('/item', (req, res) => {
-  let text = req.body.text;
+  const { text } = req.body;
   stack.push(text);
   res.redirect('/stack/form/item');
 });
 
 router.get('/item', (req, res) => {
   (async function (){
-  	response = await stack.pop();
-  	res.send(response);
+    const response = await stack.pop();
+    res.send(response);
   })();
 });
 
-module.exports = router
+module.exports = router;

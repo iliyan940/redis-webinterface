@@ -14,7 +14,7 @@ module.exports = class Store {
   // @param {Integer} key
   // @return Promise
   get(key) {
-    return new Promise(function (resolve, reject) {
+    return new Promise((resolve, reject) => {
       client.get(key, (err, reply) => {
       // reply is null when the key is missing
         if (err) {
