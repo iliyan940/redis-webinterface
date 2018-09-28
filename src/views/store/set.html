@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>set Store</title>
+</head>
+<body>
+
+<h4>Set to store</h4>
+	<form method="POST" action="/store/item">
+		<label for="key">key</label>
+		<input type="text" id="key" name="key"> <br>
+		<label for="value">value</label>
+		<input type="text" id="value" name="value"> <br>
+		<label for="time">Time to live</label>
+		<input type="text" id="time" name="time"><br>
+		<button>set</button>
+	</form>
+<a href="/store/form/get"> Get from store </a> 
+<br>
+<a href="/store/form/delete"> Delete from store </a>
+</body>
+</html>
